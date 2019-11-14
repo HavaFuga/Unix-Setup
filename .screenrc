@@ -1,0 +1,15 @@
+backtick 1 20 20 /bin/hostname
+backtick 2 20 20 /home/hava/scripts/my-local-ip.sh
+backtick 3 20 20 /home/hava/scripts/memoryPercentage.sh
+hardstatus alwayslastline
+hardstatus string '%{gk} [ %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}] %= [ %{= w}%Y/%m/%d %0C:%s%a%{g} ] [ %{= w}%l %3` %{g}] [ %{= w}%1` (%2`)%{g} ] %{W}'
+altscreen on
+escape ^vv
+mousetrack on
+bindkey -m ' ' eval 'stuff \040' 'writebuf' 'exec sh -c "cat /tmp/screen-exchange | /usr/bin/clipit 2> /dev/null"'
+
+# enable scrolling with mouse
+termcapinfo xterm* ti@:te@
+
+# Set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
